@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "普京脚本中心", HidePremium = false, SaveConfig = true, ConfigFolder = "PutinScriptsHub", IntroText = "普京脚本中心", IntroIcon = "rbxassetid://5872854659"})
+local Window = OrionLib:MakeWindow({Name = "普京脚本中心", HidePremium = false, SaveConfig = true, ConfigFolder = "PutinScriptsHub", IntroText = "普京脚本中心"})
 
 --[[
 Name = <string> - The name of the UI.
@@ -415,7 +415,7 @@ Callback = <function> - The function of the button.
 Tab:AddButton({
 	Name = "操操逼",
 	Callback = function()
-      		loadstring(game:HttpGet(('https://pastebin.com/raw/ZfaM6tNg'),true))()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/bzmhRgKL"))()
   	end    
 })
 --[[
@@ -482,7 +482,7 @@ Callback = <function> - The function of the button.
 Tab:AddButton({
 	Name = "鱼脚本",
 	Callback = function()
-      		 loadstring(game:HelpGet(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,115,104,122,46,97,108,47,126,70,105,115,104,83,99,114,105,112,116,78,101,119})end)())))();
+      		 loadstring(game:HelpGet(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,115,104,122,46,97,108,47,126,70,105,115,104,83,99,114,105,112,116,78,101,119})end)())))()
   	end    
 })
 
@@ -588,7 +588,7 @@ Name = <string> - The name of the section.
 Tab:AddButton({
 	Name = "向导Boss",
 	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Donjosx/SBS/main/BeatTheGuide.lua"))();
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Donjosx/SBS/main/BeatTheGuide.lua"))()
   	end    
 })
 
