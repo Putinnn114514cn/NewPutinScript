@@ -422,6 +422,17 @@ Tab:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+Tab:AddButton({
+	Name = "甩飞",
+	Callback = function()
+      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/shuaifeiCNsimple2.txt")))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 local Section = Tab:AddSection({
 	Name = "视觉型"
 })
@@ -636,6 +647,17 @@ Tab:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+Tab:AddButton({
+	Name = "巴掌界公认最强脚本中心",
+	Callback = function()
+      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Latundra/GFET/main/script")))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 local Section = Tab:AddSection({
 	Name = "刷手套脚本"
 })
@@ -687,8 +709,31 @@ Tab:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+Tab:AddButton({
+	Name = "拳击手巴掌农场（无gui)",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/DonjoScripts/Public-Scripts/refs/heads/Slap-Battles/Boxer-slap-farm"))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+Tab:AddButton({
+	Name = "老鼠手套奶酪塔防打老鼠王脚本",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Guy-that-exists/Hub-that-exists/main/Script"))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
 local Tab = Window:MakeTab({
-	Name = "doors脚本",
+	Name = "doors",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
