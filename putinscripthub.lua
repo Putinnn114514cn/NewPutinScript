@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "普京脚本中心", HidePremium = false, SaveConfig = true, ConfigFolder = "PutinScriptsHub", IntroText = "普京脚本中心"})
+local Window = OrionLib:MakeWindow({Name = "普京脚本中心", HidePremium = false, SaveConfig = true, ConfigFolder = "PutinScriptsHub", IntroText = "普京脚本中心", IntroIcon = "https://k.sinaimg.cn/n/spider20250223/510/w842h468/20250223/ba1a-363078abc9b7b1cf9fce090788abb1d7.png/w700d1q75cms.jpg?by=cms_fixed_width"})
 
 --[[
 Name = <string> - The name of the UI.
@@ -766,5 +766,45 @@ Tab:AddButton({
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
+]]
+local Tab = Window:MakeTab({
+	Name = "被遗弃",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Section = Tab:AddSection({
+	Name = "被遗弃脚本"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+Tab:AddButton({
+	Name = "被遗弃游戏的脚本（功能多)",
+	Callback = function()
+      		loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/SilkScripts/AppleStuff/refs/heads/main/AppleFSKV2")))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+local Tab = Window:MakeTab({
+	Name = "力量传奇",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 OrionLib:Init()
