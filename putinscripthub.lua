@@ -836,4 +836,44 @@ Tab:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+local Section = Tab:AddSection({
+	Name = "综合脚本"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+Tab:AddButton({
+	Name = "力量传奇最强脚本",
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/mqGPg69N"))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+Tab:AddButton({
+	Name = "力量传奇击飞无视耐力力量",
+	Callback = function()
+      		loadstring(game:GetObjects("rbxassetid://10123407012")[1].Source)()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+Tab:AddButton({
+	Name = "自动强壮无gui",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/liliangchuanqizidongqiangzhuang.txt"))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 OrionLib:Init()
