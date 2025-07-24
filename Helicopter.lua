@@ -1,16 +1,13 @@
--- Roblox飞行控制系统
+-- Roblox飞行控制系统（优化本地端稳定性）
 -- 功能：无限旋转飞行 + 玩家检测与碰撞系统
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
-local GuiService = game:GetService("GuiService")
 
--- 玩家角色初始化
+-- 玩家变量
 local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local rootPart = character:WaitForChild("HumanoidRootPart")
+local character, humanoid, rootPart
 
 -- 配置参数
 local config = {
@@ -32,12 +29,40 @@ local currentTarget = nil
 local screenGui = nil
 local controlFrame = nil
 
--- 初始化飞行状态
-humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false)
+-- 角色初始化函数
+local function initializeCharacter()
+    -- 等待角色加载
+    character = player.Character
+    if not character then
+        character = player.CharacterAdded:Wait()
+    end
+    
+    humanoid = character:WaitForChild("Humanoid")
+    rootPart = character:WaitForChild("HumanoidRootPart")
+    
+    -- 禁用摔倒状态
+    humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false)
+    
+    -- 如果之前是飞行状态，则重新启用飞行
+    if isFlying then
+        toggleFlight(true)
+    end
+end
 
 -- 创建飞行物理控制器
 local function createFlightController()
-    if flightVelocity then flightVelocity:Destroy() end
+    -- 清理之前的控制器
+    if flightVelocity then 
+        flightVelocity:Destroy()
+        flightVelocity = nil
+    end
+    if rotationForce then 
+        rotationForce:Destroy()
+        rotationForce = nil
+    end
+    
+    -- 确保角色部件存在
+    if not character or not rootPart then return end
     
     -- 创建速度控制器
     flightVelocity = Instance.new("BodyVelocity")
@@ -56,7 +81,9 @@ end
 
 -- 处理飞行移动
 local function updateFlight(deltaTime)
-    if not isFlying or not flightVelocity then return end
+    if not isFlying or not flightVelocity or not rootPart or not rootPart.Parent then
+        return 
+    end
     
     -- 获取输入方向
     local moveDirection = Vector3.new(0, 0, 0)
@@ -75,17 +102,21 @@ local function updateFlight(deltaTime)
     
     -- 根据相机方向转换移动向量
     local camera = workspace.CurrentCamera
-    local cameraCFrame = camera.CFrame
-    local forward = cameraCFrame.LookVector * moveDirection.Z
-    local right = cameraCFrame.RightVector * moveDirection.X
-    local moveVector = (forward + right) * config.flightSpeed
-    
-    -- 应用垂直速度
-    flightVelocity.Velocity = moveVector + Vector3.new(0, config.ascentSpeed, 0)
+    if camera then
+        local cameraCFrame = camera.CFrame
+        local forward = cameraCFrame.LookVector * moveDirection.Z
+        local right = cameraCFrame.RightVector * moveDirection.X
+        local moveVector = (forward + right) * config.flightSpeed
+        
+        -- 应用垂直速度
+        flightVelocity.Velocity = moveVector + Vector3.new(0, config.ascentSpeed, 0)
+    end
 end
 
 -- 检测附近玩家
 local function checkNearbyPlayers()
+    if not character or not rootPart then return 0, nil end
+    
     local nearbyCount = 0
     local closestPlayer = nil
     local minDistance = config.detectionRadius
@@ -111,14 +142,14 @@ end
 
 -- 激活碰撞系统
 local function activateCollision(targetPlayer)
-    if collisionActive or not targetPlayer then return end
+    if collisionActive or not targetPlayer or not character then return end
     
     collisionActive = true
     currentTarget = targetPlayer
     
     -- 放大碰撞箱
     for _, part in pairs(character:GetDescendants()) do
-        if part:IsA("BasePart") then
+        if part:IsA("BasePart") and part ~= rootPart then -- 避免修改rootPart
             local originalSize = part.Size
             part.Size = originalSize * config.collisionSize
             
@@ -132,22 +163,29 @@ local function activateCollision(targetPlayer)
     end
     
     -- 向目标玩家移动
-    while collisionActive and currentTarget and currentTarget.Character do
-        local targetRoot = currentTarget.Character:FindFirstChild("HumanoidRootPart")
-        if targetRoot and flightVelocity then
-            local direction = (targetRoot.Position - rootPart.Position).Unit
-            flightVelocity.Velocity = direction * config.collisionForce
+    spawn(function()
+        while collisionActive and currentTarget and currentTarget.Character and flightVelocity do
+            local targetRoot = currentTarget.Character:FindFirstChild("HumanoidRootPart")
+            if targetRoot and rootPart then
+                local direction = (targetRoot.Position - rootPart.Position).Unit
+                flightVelocity.Velocity = direction * config.collisionForce
+            end
+            RunService.Heartbeat:Wait()
         end
-        wait(0.1)
-    end
+    end)
 end
 
 -- 创建图形界面
 local function createFlightGUI()
+    -- 如果已有GUI则销毁
+    if screenGui then
+        screenGui:Destroy()
+    end
+    
     -- 创建屏幕GUI
     screenGui = Instance.new("ScreenGui")
     screenGui.Name = "FlightControlGUI"
-    screenGui.Parent = player.PlayerGui
+    screenGui.Parent = player:WaitForChild("PlayerGui")
     
     -- 创建控制框架
     controlFrame = Instance.new("Frame")
@@ -202,49 +240,51 @@ local function createFlightGUI()
     end)
 end
 
--- 主循环
-RunService.Heartbeat:Connect(function(deltaTime)
-    if isFlying then
-        updateFlight(deltaTime)
-        local nearbyCount, closestPlayer = checkNearbyPlayers()
-        
-        if nearbyCount > 0 and not collisionActive then
-            activateCollision(closestPlayer)
-        elseif nearbyCount == 0 and collisionActive then
-            -- 重置碰撞箱
-            for _, info in pairs(collisionParts) do
-                info.part.Size = info.originalSize
-            end
-            collisionParts = {}
-            collisionActive = false
-            currentTarget = nil
-        end
-    end
-end)
-
 -- 飞行状态切换
 local function toggleFlight(active)
+    if active == isFlying then return end
     isFlying = active
     
     if isFlying then
+        -- 确保角色存在
+        if not character or not humanoid or not rootPart then
+            initializeCharacter()
+        end
+        
+        -- 创建控制器
         createFlightController()
         humanoid.PlatformStand = true
+        
+        -- 创建GUI
         if not screenGui then
             createFlightGUI()
         else
             screenGui.Enabled = true
         end
     else
-        if flightVelocity then flightVelocity:Destroy() end
-        if rotationForce then rotationForce:Destroy() end
-        humanoid.PlatformStand = false
+        -- 清理控制器
+        if flightVelocity then 
+            flightVelocity:Destroy()
+            flightVelocity = nil
+        end
+        if rotationForce then 
+            rotationForce:Destroy()
+            rotationForce = nil
+        end
+        
+        if humanoid then
+            humanoid.PlatformStand = false
+        end
+        
         if screenGui then
             screenGui.Enabled = false
         end
         
         -- 重置碰撞系统
         for _, info in pairs(collisionParts) do
-            info.part.Size = info.originalSize
+            if info.part and info.part.Parent then
+                info.part.Size = info.originalSize
+            end
         end
         collisionParts = {}
         collisionActive = false
@@ -260,19 +300,53 @@ UserInputService.InputBegan:Connect(function(input)
 end)
 
 -- 角色死亡时重置状态
-humanoid.Died:Connect(function()
+local function onCharacterDied()
     toggleFlight(false)
-end)
+end
 
 -- 角色切换时重新初始化
 player.CharacterAdded:Connect(function(newChar)
+    -- 初始化新角色
     character = newChar
     humanoid = character:WaitForChild("Humanoid")
     rootPart = character:WaitForChild("HumanoidRootPart")
     
+    -- 连接死亡事件
+    humanoid.Died:Connect(onCharacterDied)
+    
     -- 重新启用飞行状态
     if isFlying then
-        wait(1) -- 等待角色完全加载
+        task.wait(0.5) -- 等待角色完全加载
         toggleFlight(true)
     end
 end)
+
+-- 主循环
+RunService.Heartbeat:Connect(function(deltaTime)
+    if isFlying then
+        updateFlight(deltaTime)
+        local nearbyCount, closestPlayer = checkNearbyPlayers()
+        
+        if nearbyCount > 0 and not collisionActive then
+            activateCollision(closestPlayer)
+        elseif nearbyCount == 0 and collisionActive then
+            -- 重置碰撞箱
+            for _, info in pairs(collisionParts) do
+                if info.part and info.part.Parent then
+                    info.part.Size = info.originalSize
+                end
+            end
+            collisionParts = {}
+            collisionActive = false
+            currentTarget = nil
+        end
+    end
+end)
+
+-- 初始角色加载
+if player.Character then
+    initializeCharacter()
+    if humanoid then
+        humanoid.Died:Connect(onCharacterDied)
+    end
+end
