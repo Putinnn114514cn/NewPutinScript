@@ -932,7 +932,7 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
-	Name = "力量传奇",
+	Name = "自然灾害模拟器",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -948,21 +948,7 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddButton({
-	Name = "自然灾害高级脚本",
-	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/9NLK7/93qjoadnlaknwldk/main/main'))()
-  	end    
-})
 
-local Section = Tab:AddSection({
-	Name = "万磁王"
-})
 
-Tab:AddButton({
-	Name = "吸物品",
-	Callback = function()
-      		loadstring(game:HttpGet("https://pastefy.app/HMPrXacS/raw"))()
-  	end    
-})
+
 OrionLib:Init()
