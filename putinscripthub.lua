@@ -931,4 +931,38 @@ Tab:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+local Tab = Window:MakeTab({
+	Name = "力量传奇",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "神力"
+})
+
+Tab:AddButton({
+	Name = "自然灾害脚本中心",
+	Callback = function()
+      		loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/7c75386107937fa006304efd24543ad4/raw/8d759dfcd95d39949c692735cfdf62baec0bf835/cafwetweg", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "自然灾害高级脚本",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/9NLK7/93qjoadnlaknwldk/main/main'))()
+  	end    
+})
+
+local Section = Tab:AddSection({
+	Name = "万磁王"
+})
+
+Tab:AddButton({
+	Name = "吸物品",
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastefy.app/HMPrXacS/raw"))()
+  	end    
+})
 OrionLib:Init()
