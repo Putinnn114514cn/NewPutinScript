@@ -999,4 +999,11 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "无卡密刷债券",
+	Callback = function()
+      	 loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
+  	end    
+})
+
 OrionLib:Init()
