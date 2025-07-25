@@ -429,6 +429,13 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "甩飞2",
+	Callback = function()
+      	loadstring(game:HttpGet("http://rawscripts.net/raw/Universal-Script-Touch-fling-script-22447"))()
+  	end    
+})
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
@@ -948,7 +955,48 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "自然灾害脚本中心2",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/NaturadisastesimulatorControlledarticles.lua"))()
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "死铁轨",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
 
+local Section = Tab:AddSection({
+	Name = "脚本中心"
+})
+
+
+Tab:AddButton({
+	Name = "死铁轨脚本中心",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
+  	end    
+})
+
+Tab:AddButton({
+	Name = "sans脚本中心（中文)",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/iopjklbnmsss/SansHubScript/refs/heads/main/SansHub"))()
+  	end    
+})
+
+local Section = Tab:AddSection({
+	Name = "刷债券"
+})
+
+Tab:AddButton({
+	Name = "Moon V3刷债券",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/m00ndiety/OP-AUTO-BONDS-V3/refs/heads/main/Keyless-BONDS-v3"))()
+  	end    
+})
 
 OrionLib:Init()
