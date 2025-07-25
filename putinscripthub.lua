@@ -66,6 +66,13 @@ Tab:AddButton({
   	end    
 })
 
+
+Tab:AddButton({
+	Name = "甩人3",
+	Callback = function()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/shuairen.txt"))()
+  	end    
+})
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
@@ -999,10 +1006,21 @@ Tab:AddButton({
   	end    
 })
 
+local Section = Tab:AddSection({
+	Name = "免费脚本"
+})
+
 Tab:AddButton({
-	Name = "死铁轨农场，超能力，杀戮",
+	Name = "免费死铁轨脚本1",
 	Callback = function()
-      	 loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
+      	 loadstring(game:HttpGet("https://raw.githubusercontent.com/TwoGunVolley/FixedPlease/refs/heads/main/Protected_7197551640341824.txt"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "免费死铁轨脚本2",
+	Callback = function()
+      	loadstring(game:HttpGet('https://pastefy.app/7vZN3EwV/raw'))()
   	end    
 })
 
