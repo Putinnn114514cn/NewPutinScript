@@ -969,6 +969,13 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "自然灾害控制物品（其他体验可用)",
+	Callback = function()
+      	   loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/kongzhiwupin.txt"))()
+  	end    
+})
+
 local Tab = Window:MakeTab({
 	Name = "死铁轨",
 	Icon = "rbxassetid://4483345998",
