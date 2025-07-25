@@ -1000,7 +1000,7 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-	Name = "无卡密刷债券",
+	Name = "死铁轨农场，超能力，杀戮",
 	Callback = function()
       	 loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
   	end    
