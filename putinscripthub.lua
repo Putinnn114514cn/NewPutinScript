@@ -430,9 +430,9 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 Tab:AddButton({
-	Name = "甩飞",
+	Name = "普京甩飞",
 	Callback = function()
-      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/shuaifeiCNsimple2.txt")))()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/shuaifeiPutin.lua", true))()
   	end    
 })
 
