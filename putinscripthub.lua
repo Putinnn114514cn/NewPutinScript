@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "普京脚本中心", HidePremium = false, SaveConfig = true, ConfigFolder = "PutinScriptsHub", IntroText = "普京脚本中心", IntroIcon = "https://k.sinaimg.cn/n/spider20250223/510/w842h468/20250223/ba1a-363078abc9b7b1cf9fce090788abb1d7.png/w700d1q75cms.jpg?by=cms_fixed_width"})
+local Window = OrionLib:MakeWindow({Name = "普京脚本中心", HidePremium = false, SaveConfig = true, ConfigFolder = "PutinScriptsHub", IntroText = "普京脚本中心", IntroIcon = "https://so1.360tres.com/t01362c089a1417a0bf.png"})
 
 --[[
 Name = <string> - The name of the UI.
