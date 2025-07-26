@@ -602,7 +602,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({
 	Name = "巴掌战斗脚本",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://11782011624",
 	PremiumOnly = false
 })
 
@@ -766,7 +766,7 @@ Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
 	Name = "doors",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://10799441550",
 	PremiumOnly = false
 })
 
@@ -846,7 +846,7 @@ Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
 	Name = "被遗弃",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://114342395826868",
 	PremiumOnly = false
 })
 
@@ -886,7 +886,7 @@ Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
 	Name = "力量传奇",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://18209575839",
 	PremiumOnly = false
 })
 
@@ -955,7 +955,7 @@ Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
 	Name = "自然灾害模拟器",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://120565325399356",
 	PremiumOnly = false
 })
 
@@ -993,7 +993,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({
 	Name = "死铁轨",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://81826279224825",
 	PremiumOnly = false
 })
 
@@ -1055,7 +1055,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({
 	Name = "犯罪",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://9599624010",
 	PremiumOnly = false
 })
 
