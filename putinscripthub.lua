@@ -592,6 +592,14 @@ Tab:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+
+Tab:AddButton({
+	Name = "Zerohub（外国零脚本）",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/liliangchuanqizidongqiangzhuang.txt"))()
+  	end    
+})
+
 local Tab = Window:MakeTab({
 	Name = "巴掌战斗脚本",
 	Icon = "rbxassetid://4483345998",
@@ -1028,6 +1036,13 @@ Tab:AddButton({
 	Name = "免费死铁轨脚本2",
 	Callback = function()
       	loadstring(game:HttpGet('https://pastefy.app/7vZN3EwV/raw'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "zerohub（其他游戏也有脚本)",
+	Callback = function()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/dnezero/zerohub/refs/heads/main/main.lua"))()
   	end    
 })
 
