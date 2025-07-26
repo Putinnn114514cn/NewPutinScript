@@ -984,6 +984,13 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "黑洞脚本",
+	Callback = function()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/XSKMS/XSK/refs/heads/main/HeiDongscript.lua"))()
+  	end    
+})
+
 local Tab = Window:MakeTab({
 	Name = "死铁轨",
 	Icon = "rbxassetid://4483345998",
