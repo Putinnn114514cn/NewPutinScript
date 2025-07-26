@@ -1031,4 +1031,28 @@ Tab:AddButton({
   	end    
 })
 
+local Tab = Window:MakeTab({
+	Name = "犯罪",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "犯罪脚本"
+})
+
+Tab:AddButton({
+	Name = "Vape犯罪脚本",
+	Callback = function()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "犯罪脚本",
+	Callback = function()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/JackHiggly/RobloxThings/main/FemWare0", true))()
+  	end    
+})
+
 OrionLib:Init()

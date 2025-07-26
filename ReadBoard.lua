@@ -38,10 +38,9 @@ ContentLabel.Text = [[
 
 欢迎来到普京脚本中心！
 
-当前版本：v0.5.5
+当前版本：v0.5.6
 更新内容：
-1. 新增了自然灾害模拟器,死铁轨的脚本
-2. 新添甩飞脚本
+1. 新增犯罪脚本
 ]]  -- 在此修改预设内容
 ContentLabel.Font = Enum.Font.GothamMedium
 ContentLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
