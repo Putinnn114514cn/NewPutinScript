@@ -782,6 +782,13 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "哨声手套（在红门后面)",
+	Callback = function()
+      	loadstring(game:HttpGet('https://raw.githubusercontent.com/Umbrella-Scripter/Slap-Battles/refs/heads/main/F.L.O.W.E.R.lua'))()
+  	end    
+})
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
