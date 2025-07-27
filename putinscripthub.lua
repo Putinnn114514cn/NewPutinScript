@@ -41,6 +41,14 @@ Tab:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+
+Tab:AddButton({
+	Name = "普京脚本q群835595364",
+	Callback = function()
+      		
+  	end    
+})
+
 local Tab = Window:MakeTab({
 	Name = "通用",
 	Icon = "rbxassetid://4483345998",
@@ -600,6 +608,13 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "少羽脚本",
+	Callback = function()
+      	loadstring(game:HttpGet("https://pastebin.com/raw/yeDRR0kv"))()
+  	end    
+})
+
 local Tab = Window:MakeTab({
 	Name = "巴掌战斗脚本",
 	Icon = "rbxassetid://11782011624",
@@ -766,7 +781,7 @@ Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
 	Name = "doors",
-	Icon = "rbxassetid://10799441550",
+	Icon = "rbxassetid://10799441537",
 	PremiumOnly = false
 })
 
@@ -846,7 +861,7 @@ Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
 	Name = "被遗弃",
-	Icon = "rbxassetid://114342395826868",
+	Icon = "rbxassetid://94222413183599",
 	PremiumOnly = false
 })
 
@@ -886,7 +901,7 @@ Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
 	Name = "力量传奇",
-	Icon = "rbxassetid://18209575839",
+	Icon = "rbxassetid://18209575791",
 	PremiumOnly = false
 })
 
@@ -955,7 +970,7 @@ Callback = <function> - The function of the button.
 ]]
 local Tab = Window:MakeTab({
 	Name = "自然灾害模拟器",
-	Icon = "rbxassetid://120565325399356",
+	Icon = "rbxassetid://75756933857153",
 	PremiumOnly = false
 })
 
@@ -993,7 +1008,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({
 	Name = "死铁轨",
-	Icon = "rbxassetid://81826279224825",
+	Icon = "rbxassetid://122874126897828",
 	PremiumOnly = false
 })
 
@@ -1055,7 +1070,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({
 	Name = "犯罪",
-	Icon = "rbxassetid://9599624010",
+	Icon = "rbxassetid://9599624002",
 	PremiumOnly = false
 })
 
