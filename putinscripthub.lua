@@ -14,7 +14,7 @@ CloseCallback = <function> - Function to execute when the window is closed.
 ]]
 local Tab = Window:MakeTab({
 	Name = "公告",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://18943392158",
 	PremiumOnly = false
 })
 
@@ -51,7 +51,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({
 	Name = "通用",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://7114115997",
 	PremiumOnly = false
 })
 
@@ -441,6 +441,13 @@ Tab:AddButton({
 	Name = "普京甩飞",
 	Callback = function()
       	loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/shuaifeiPutin.lua", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "踢人",
+	Callback = function()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/tiren.txt"))()
   	end    
 })
 
