@@ -37,12 +37,10 @@ ContentLabel.Text = [[
 【脚本公告】
 
 欢迎来到普京脚本中心！
-
-当前版本：v0.5.7
+更新时间: 2025.7.28
+当前版本：v0.5.8
 更新内容：
-1. 修复了脚本游戏图标不显示的bug
-2. 增加了少羽脚本
-3. 增添普京脚本q群号码
+1. 新增墨水游戏的脚本
 ]]  -- 在此修改预设内容
 ContentLabel.Font = Enum.Font.GothamMedium
 ContentLabel.TextColor3 = Color3.fromRGB(200, 200, 200)

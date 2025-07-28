@@ -1106,4 +1106,35 @@ Tab:AddButton({
   	end    
 })
 
+local Tab = Window:MakeTab({
+	Name = "墨水游戏",
+	Icon = "rbxassetid://7573267740",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "墨水游戏脚本"
+})
+
+Tab:AddButton({
+	Name = "墨水游戏七月二十八日脚本",
+	Callback = function()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/erger4/testuinEW.github.io/refs/heads/main/NEWNEW.lua"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "墨水游戏汉化脚本",
+	Callback = function()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/XOTRXONY/INKGAME/main/INKGAMEE.lua", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "墨水游戏英文脚本[卡密]",
+	Callback = function()
+      	 loadstring(game:HttpGet("https://raw.githubusercontent.com/OverflowBGSI/Overflow/refs/heads/main/loader.txt"))()
+  	end    
+})
+
 OrionLib:Init()
