@@ -33,7 +33,7 @@ Name = <string> - The name of the section.
 Tab:AddButton({
 	Name = "公告",
 	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/PutinScriptV0.5.0-MADE_WITH_DEEPSEEK/refs/heads/main/ReadBoard.lua"))()
+      	loadstring(game:HttpGet("https://raw.githubusercontent.com/Putinnn114514cn/NewPutinScript/refs/heads/main/ReadBoard.lua"))()
   	end    
 })
 
